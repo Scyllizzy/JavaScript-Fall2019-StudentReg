@@ -12,6 +12,7 @@ function processForm() {
     var stu = getStudentFromForm();
     displayStudent(stu);
     clearForm();
+    console.log(stu);
 }
 function getStudentFromForm() {
     var newStudent = new Student();
@@ -25,7 +26,11 @@ function getStudentFromForm() {
 function inputValue(ID) {
     return document.getElementById(ID).value;
 }
-function displayStudent(student) {
+function displayStudent(s) {
+    var newItem = document.createElement("li");
+    newItem.innerHTML = s.firstName + " " + s.lastName;
+    var list = document.querySelector("#student-list > ul");
+    list.appendChild(newItem);
 }
 function clearForm() {
 }

@@ -40,6 +40,8 @@ function processForm() {
     displayStudent(stu);
     //clear form
     clearForm();
+
+    console.log(stu);
 }
 
 /**
@@ -64,8 +66,15 @@ function inputValue(ID:string):string {
     return (<HTMLInputElement>document.getElementById(ID)).value;
 }
 
-function displayStudent(student):void {
+function displayStudent(s:Student):void {
+    let newItem = document.createElement("li");
 
+    newItem.innerHTML = s.firstName + " " + s.lastName;
+
+    let list = document.querySelector("#student-list > ul");
+
+    //Add <li> as a child to <ul>
+    list.appendChild(newItem);
 }
 
 function clearForm():void {
