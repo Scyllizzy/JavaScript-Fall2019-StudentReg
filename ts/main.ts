@@ -69,6 +69,10 @@ function inputValue(ID:string):string {
     return (<HTMLInputElement>document.getElementById(ID)).value;
 }
 
+/**
+ * Displays the student at the bottom of the form. Once it's clicked, more info is displayed.
+ * @param stu The student object to access more information about he student.
+ */
 function displayStudent(stu:Student):void {
     let newItem = document.createElement("li");
 
@@ -101,6 +105,9 @@ function showStudentData():void {
     document.querySelector("#display > p").innerHTML = name + " is studying " + program;
 }
 
+/**
+ * Clears all the inputs type=text in the form
+ */
 function clearForm():void {
     let allTextBoxes = document.querySelectorAll("input[type=text]");
     

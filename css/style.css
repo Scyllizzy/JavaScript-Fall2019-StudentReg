@@ -1,0 +1,33 @@
+body {
+    background-color: rgb(70, 70, 70);
+    color: rgb(202, 202, 202);
+    text-align: center;
+}
+
+h1 {
+    background-color: rgb(97, 97, 97);
+    margin-right: -2em;
+    margin-left: -2em;
+    margin-top: -.25em;
+    padding: .5em;
+}
+
+input, select {
+    border-radius: 1em;
+    background-color: rgb(228, 228, 228);
+}
+
+button {
+    border-radius: 1em;
+    width: 7em;
+    height: 2.25em;
+    background-color: rgb(228, 228, 228);
+}
+
+button:hover, select:hover {
+    background-color: rgb(189, 189, 189);
+}
+
+span {
+    color: rgb(255, 65, 65);
+}
