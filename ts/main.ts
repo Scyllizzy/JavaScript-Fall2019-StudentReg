@@ -102,6 +102,11 @@ function showStudentData():void {
 }
 
 function clearForm():void {
-
+    let allTextBoxes = document.querySelectorAll("input[type=text]");
+    
+    for (let currTxt = 0; currTxt < allTextBoxes.length; currTxt++) {
+        let currBox = <HTMLInputElement>allTextBoxes[currTxt];
+        currBox.value = "";
+    }
 }
 

@@ -46,4 +46,9 @@ function showStudentData() {
     document.querySelector("#display > p").innerHTML = name + " is studying " + program;
 }
 function clearForm() {
+    var allTextBoxes = document.querySelectorAll("input[type=text]");
+    for (var currTxt = 0; currTxt < allTextBoxes.length; currTxt++) {
+        var currBox = allTextBoxes[currTxt];
+        currBox.value = "";
+    }
 }
