@@ -1,3 +1,6 @@
+//Constants
+const programAttr = "data-program";
+
 /**
  * Represents a college student
  */
@@ -66,15 +69,36 @@ function inputValue(ID:string):string {
     return (<HTMLInputElement>document.getElementById(ID)).value;
 }
 
-function displayStudent(s:Student):void {
+function displayStudent(stu:Student):void {
     let newItem = document.createElement("li");
 
-    newItem.innerHTML = s.firstName + " " + s.lastName;
+    newItem.innerHTML = stu.firstName + " " + stu.lastName;
 
     let list = document.querySelector("#student-list > ul");
 
+    //imbed student data in <li>
+    newItem.setAttribute(programAttr, stu.program);
+    newItem.setAttribute("data-address", stu.address);
+    newItem.setAttribute("data-birthdate", stu.dateOfBirth.toString());
+
+    console.log(newItem);
+
+    newItem.onclick = showStudentData;
+
     //Add <li> as a child to <ul>
     list.appendChild(newItem);
+}
+
+/**
+ * shows indiviadul student data when a student <li> is clicked
+ */
+function showStudentData():void {
+    let currentListItem = <HTMLLIElement>this;
+    let name = currentListItem.innerText;
+    let program = currentListItem.getAttribute(programAttr);
+    
+    document.querySelector("#display > h2").innerHTML = name;
+    document.querySelector("#display > p").innerHTML = name + " is studying " + program;
 }
 
 function clearForm():void {

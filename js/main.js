@@ -1,3 +1,4 @@
+var programAttr = "data-program";
 var Student = (function () {
     function Student() {
     }
@@ -26,11 +27,23 @@ function getStudentFromForm() {
 function inputValue(ID) {
     return document.getElementById(ID).value;
 }
-function displayStudent(s) {
+function displayStudent(stu) {
     var newItem = document.createElement("li");
-    newItem.innerHTML = s.firstName + " " + s.lastName;
+    newItem.innerHTML = stu.firstName + " " + stu.lastName;
     var list = document.querySelector("#student-list > ul");
+    newItem.setAttribute(programAttr, stu.program);
+    newItem.setAttribute("data-address", stu.address);
+    newItem.setAttribute("data-birthdate", stu.dateOfBirth.toString());
+    console.log(newItem);
+    newItem.onclick = showStudentData;
     list.appendChild(newItem);
+}
+function showStudentData() {
+    var currentListItem = this;
+    var name = currentListItem.innerText;
+    var program = currentListItem.getAttribute(programAttr);
+    document.querySelector("#display > h2").innerHTML = name;
+    document.querySelector("#display > p").innerHTML = name + " is studying " + program;
 }
 function clearForm() {
 }
